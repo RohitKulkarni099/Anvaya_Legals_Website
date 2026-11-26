@@ -1,1 +1,3211 @@
-# Anvaya_Legals_Website
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Anvaya Legal - Legal expertise in Banking & Finance, Real Estate, Project Finance, Corporate Advisory and more.">
+    <title>Anvaya Legal | Advocates & Legal Consultants</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* =========================================
+       ANVAYA LEGAL - PREMIUM COLOUR THEME
+       Navy Blue + Champagne Gold
+    ========================================== */
+
+        :root {
+            --navy: #14243a;
+            --navy-dark: #0c192b;
+            --navy-light: #243b56;
+
+            --gold: #b49a68;
+            --gold-light: #d0bc91;
+            --gold-dark: #92794e;
+
+            --paper: #f5f4ef;
+            --white: #ffffff;
+            --text: #4d5866;
+            --muted: #7c8794;
+            --border: #e8e5dc;
+
+            --heading-font: 'Playfair Display', serif;
+            --body-font: 'DM Sans', sans-serif;
+            --modern-font: 'Manrope', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: var(--body-font);
+            color: var(--text);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        ::selection {
+            background: var(--gold);
+            color: var(--navy-dark);
+        }
+
+        /* PRELOADER */
+
+        #preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: var(--navy-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity .6s ease, visibility .6s ease;
+        }
+
+        #preloader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-content {
+            text-align: center;
+            color: var(--white);
+        }
+
+        .loader-logo {
+            font-family: var(--heading-font);
+            font-size: 38px;
+            letter-spacing: 5px;
+            color: var(--gold-light);
+        }
+
+        .loader-line {
+            width: 120px;
+            height: 2px;
+            background: rgba(255, 255, 255, .2);
+            margin: 18px auto;
+            overflow: hidden;
+        }
+
+        .loader-line::after {
+            content: "";
+            display: block;
+            width: 40%;
+            height: 100%;
+            background: var(--gold);
+            animation: loading 1.2s infinite ease-in-out;
+        }
+
+        @keyframes loading {
+            from {
+                transform: translateX(-100%);
+            }
+
+            to {
+                transform: translateX(300%);
+            }
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            padding: 18px 0;
+            background: rgba(12, 25, 43, .96);
+            backdrop-filter: blur(15px);
+            transition: all .35s ease;
+            z-index: 1000;
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .13);
+        }
+
+        .navbar-brand {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.05;
+            color: var(--white) !important;
+        }
+
+        .brand-main {
+            font-family: var(--heading-font);
+            font-size: 27px;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        .brand-sub {
+            color: var(--gold-light);
+            font-size: 12px;
+            letter-spacing: 5px;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .navbar-nav {
+            gap: 7px;
+        }
+
+        .navbar .nav-link {
+            color: rgba(255, 255, 255, .85) !important;
+            font-family: var(--modern-font);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .7px;
+            padding: 10px 12px !important;
+            position: relative;
+            transition: .3s ease;
+        }
+
+        .navbar .nav-link::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            left: 12px;
+            bottom: 3px;
+            background: var(--gold);
+            transition: .3s ease;
+        }
+
+        .navbar .nav-link:hover,
+        .navbar .nav-link.active {
+            color: var(--gold-light) !important;
+        }
+
+        .navbar .nav-link:hover::after {
+            width: calc(100% - 24px);
+        }
+
+        .navbar-toggler {
+            border: 1px solid rgba(255, 255, 255, .35);
+            box-shadow: none !important;
+        }
+
+        .navbar-toggler-icon {
+            filter: invert(1);
+        }
+
+        .nav-contact {
+            background: var(--gold);
+            color: var(--navy-dark) !important;
+            border-radius: 3px;
+            padding: 11px 18px !important;
+            margin-left: 8px;
+            transition: .3s ease;
+        }
+
+        .nav-contact::after {
+            display: none;
+        }
+
+        .nav-contact:hover {
+            background: var(--gold-light);
+            color: var(--navy-dark) !important;
+            transform: translateY(-2px);
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 560px;
+            height: 560px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(90deg, rgba(10, 22, 39, .94) 0%, rgba(10, 22, 39, .78) 48%, rgba(10, 22, 39, .27) 100%),
+                url("https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=2400&q=95");
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            right: 7%;
+            top: 15%;
+            width: 300px;
+            height: 300px;
+            border: 1px solid rgba(180, 154, 104, .28);
+            border-radius: 50%;
+            box-shadow: 0 0 0 35px rgba(180, 154, 104, .04),
+                0 0 0 70px rgba(180, 154, 104, .03);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 680px;
+            padding-top: 65px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            color: var(--gold-light);
+            font-family: var(--modern-font);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+
+        .hero-label::before {
+            content: "";
+            display: inline-block;
+            width: 35px;
+            height: 1px;
+            background: var(--gold);
+            vertical-align: middle;
+            margin-right: 12px;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-family: var(--heading-font);
+            font-size: clamp(38px, 5vw, 62px);
+            line-height: 1.15;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--gold-light);
+        }
+
+        .hero p {
+            color: rgba(255, 255, 255, .8);
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 540px;
+            margin-bottom: 30px;
+        }
+
+        .btn-gold {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 25px;
+            background: var(--gold);
+            color: var(--navy-dark);
+            font-family: var(--modern-font);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 1px solid var(--gold);
+            border-radius: 2px;
+            transition: .35s ease;
+        }
+
+        .btn-gold:hover {
+            background: var(--gold-light);
+            border-color: var(--gold-light);
+            color: var(--navy-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(180, 154, 104, .2);
+        }
+
+        .btn-outline-light-custom {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 24px;
+            margin-left: 10px;
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, .55);
+            font-family: var(--modern-font);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: .3s ease;
+        }
+
+        .btn-outline-light-custom:hover {
+            color: var(--gold-light);
+            border-color: var(--gold);
+            background: rgba(180, 154, 104, .08);
+        }
+
+        /* MOVING STRIP */
+
+        .moving-strip {
+            background: var(--navy);
+            padding: 12px 0;
+            overflow: hidden;
+            border-top: 1px solid rgba(180, 154, 104, .35);
+            border-bottom: 1px solid rgba(180, 154, 104, .35);
+        }
+
+        .moving-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 35s linear infinite;
+        }
+
+        .moving-track span {
+            color: var(--white);
+            font-family: var(--modern-font);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 0 35px;
+            white-space: nowrap;
+        }
+
+        .moving-track span i {
+            color: var(--gold-light);
+            margin-right: 12px;
+            font-size: 12px;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* GENERAL SECTION */
+
+        section {
+            padding: 95px 0;
+        }
+
+        .section-tag {
+            display: inline-block;
+            color: var(--gold-dark);
+            font-family: var(--modern-font);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: var(--heading-font);
+            color: var(--navy);
+            font-size: clamp(32px, 4vw, 45px);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .section-title span {
+            color: var(--gold-dark);
+        }
+
+        .section-desc {
+            color: var(--text);
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .gold-line {
+            width: 55px;
+            height: 3px;
+            background: var(--gold);
+            margin: 22px 0;
+        }
+
+        /* ABOUT */
+
+        .about-section {
+            background: var(--paper);
+        }
+
+        .about-image-wrap {
+            position: relative;
+            padding: 0 20px 20px 0;
+        }
+
+        .about-image-wrap::before {
+            content: "";
+            position: absolute;
+            width: 75%;
+            height: 75%;
+            right: 0;
+            bottom: 0;
+            background: var(--gold);
+            opacity: .22;
+        }
+
+        .about-image {
+            position: relative;
+            width: 100%;
+            height: 490px;
+            object-fit: cover;
+            z-index: 1;
+            box-shadow: 0 18px 45px rgba(20, 36, 58, .13);
+        }
+
+        .about-badge {
+            position: absolute;
+            z-index: 2;
+            right: -5px;
+            bottom: 42px;
+            background: var(--navy);
+            color: var(--white);
+            padding: 23px 27px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+        }
+
+        .about-badge strong {
+            display: block;
+            font-family: var(--heading-font);
+            font-size: 30px;
+            color: var(--gold-light);
+        }
+
+        .about-badge span {
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .about-points {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-top: 28px;
+        }
+
+        .about-point {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .about-point i {
+            color: var(--gold-dark);
+            font-size: 21px;
+            margin-top: 2px;
+        }
+
+        .about-point h6 {
+            color: var(--navy);
+            font-family: var(--modern-font);
+            font-size: 14px;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .about-point p {
+            font-size: 12px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* PRACTICE AREAS */
+
+        .practice-section {
+            background: var(--white);
+        }
+
+        .practice-card {
+            height: 100%;
+            padding: 34px 27px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+            transition: .4s ease;
+        }
+
+        .practice-card::before {
+            content: "";
+            position: absolute;
+            width: 4px;
+            height: 0;
+            left: 0;
+            top: 0;
+            background: var(--gold);
+            transition: .4s ease;
+        }
+
+        .practice-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(180, 154, 104, .6);
+            box-shadow: 0 20px 45px rgba(20, 36, 58, .09);
+        }
+
+        .practice-card:hover::before {
+            height: 100%;
+        }
+
+        .practice-icon {
+            width: 58px;
+            height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(180, 154, 104, .13);
+            color: var(--gold-dark);
+            font-size: 25px;
+            margin-bottom: 24px;
+            transition: .3s ease;
+        }
+
+        .practice-card:hover .practice-icon {
+            background: var(--navy);
+            color: var(--gold-light);
+        }
+
+        .practice-card h4 {
+            color: var(--navy);
+            font-family: var(--heading-font);
+            font-size: 21px;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .practice-card p {
+            font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        .practice-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .practice-list li {
+            color: var(--text);
+            font-size: 12px;
+            padding: 7px 0;
+            border-top: 1px solid #f0eee8;
+        }
+
+        .practice-list li i {
+            color: var(--gold-dark);
+            margin-right: 8px;
+        }
+
+        /* APPROACH */
+
+        .approach-section {
+            background: var(--navy-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .approach-section::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            right: -180px;
+            top: -220px;
+            border: 1px solid rgba(180, 154, 104, .2);
+            border-radius: 50%;
+            box-shadow: 0 0 0 45px rgba(180, 154, 104, .025),
+                0 0 0 90px rgba(180, 154, 104, .02);
+        }
+
+        .approach-section .section-title {
+            color: var(--white);
+        }
+
+        .approach-section .section-desc {
+            color: rgba(255, 255, 255, .72);
+        }
+
+        .approach-card {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            padding: 28px 25px;
+            border: 1px solid rgba(255, 255, 255, .13);
+            background: rgba(255, 255, 255, .035);
+            transition: .35s ease;
+        }
+
+        .approach-card:hover {
+            border-color: var(--gold);
+            background: rgba(180, 154, 104, .08);
+            transform: translateY(-6px);
+        }
+
+        .approach-number {
+            color: var(--gold-light);
+            font-family: var(--heading-font);
+            font-size: 34px;
+            margin-bottom: 18px;
+        }
+
+        .approach-card h5 {
+            color: var(--white);
+            font-family: var(--heading-font);
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .approach-card p {
+            color: rgba(255, 255, 255, .65);
+            font-size: 13px;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* TEAM */
+
+        .team-section {
+            background: var(--paper);
+        }
+
+        .team-card {
+            height: 100%;
+            background: var(--white);
+            border: 1px solid var(--border);
+            transition: .4s ease;
+            overflow: hidden;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(20, 36, 58, .12);
+            border-color: rgba(180, 154, 104, .55);
+        }
+
+        .team-image-wrap {
+            height: 270px;
+            overflow: hidden;
+            background: #e9e7e1;
+            position: relative;
+        }
+
+        .team-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            transition: transform .6s ease;
+        }
+
+        .team-card:hover .team-image-wrap img {
+            transform: scale(1.06);
+        }
+
+        .team-info {
+            padding: 23px 20px 25px;
+            text-align: center;
+        }
+
+        .team-info h5 {
+            font-family: var(--heading-font);
+            font-size: 20px;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+
+        .team-info .role {
+            color: var(--gold-dark);
+            font-family: var(--modern-font);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .team-info p {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+
+        /* TEAM PROFILE MODAL - PREMIUM ANVAYA LEGAL STYLE */
+        .team-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin-top: 17px;
+            padding: 9px 15px;
+            border: 1px solid rgba(180, 154, 104, .7);
+            background: transparent;
+            color: var(--navy);
+            font-family: var(--modern-font);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            transition: .25s ease;
+            cursor: pointer;
+        }
+
+        .team-more-btn:hover,
+        .team-more-btn:focus-visible {
+            background: var(--navy);
+            color: var(--gold-light);
+            border-color: var(--navy);
+            outline: none;
+        }
+
+        .team-profile-details {
+            display: none !important;
+        }
+
+        .team-profile-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 28px;
+            background: rgba(5, 13, 25, .78);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .25s ease, visibility .25s ease;
+        }
+
+        .team-profile-modal.is-open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .team-profile-dialog {
+            position: relative;
+            width: min(960px, 100%);
+            max-height: min(86vh, 820px);
+            overflow: hidden;
+            background: var(--paper);
+            border: 1px solid rgba(208, 188, 145, .75);
+            box-shadow: 0 28px 90px rgba(0, 0, 0, .32);
+            transform: translateY(18px) scale(.985);
+            transition: transform .28s ease;
+        }
+
+        .team-profile-modal.is-open .team-profile-dialog {
+            transform: translateY(0) scale(1);
+        }
+
+        .team-profile-modal-topline {
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
+        }
+
+        .team-profile-modal-content {
+            position: relative;
+            max-height: calc(min(86vh, 820px) - 5px);
+            overflow-y: auto;
+            padding: 48px 58px 42px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold-dark) #ece9e2;
+        }
+
+        .team-profile-modal-close {
+            position: absolute;
+            top: 18px;
+            right: 20px;
+            z-index: 2;
+            width: 38px;
+            height: 38px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(180, 154, 104, .55);
+            background: var(--white);
+            color: var(--navy);
+            font-size: 16px;
+            cursor: pointer;
+            transition: .25s ease;
+        }
+
+        .team-profile-modal-close:hover {
+            background: var(--navy);
+            color: var(--gold-light);
+            border-color: var(--navy);
+            transform: rotate(90deg);
+        }
+
+        .team-profile-modal-kicker {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--gold-dark);
+            font-family: var(--modern-font);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2.2px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .team-profile-modal-content h3 {
+            margin: 0 45px 7px;
+            color: var(--navy);
+            font-family: var(--heading-font);
+            font-size: clamp(23px, 3vw, 32px);
+            line-height: 1.25;
+            text-align: center;
+        }
+
+        .team-profile-modal-role {
+            margin-bottom: 27px;
+            color: var(--gold-dark);
+            font-family: var(--modern-font);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.8px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .team-profile-modal-rule {
+            width: 58px;
+            height: 2px;
+            margin: 0 auto 28px;
+            background: var(--gold);
+        }
+
+        .team-profile-modal-body {
+            color: var(--text);
+            font-family: var(--body-font);
+            font-size: 14px;
+            line-height: 1.85;
+        }
+
+        .team-profile-modal-body p {
+            margin-bottom: 16px;
+        }
+
+        .team-profile-modal-body .team-profile-label,
+        .team-profile-modal-body h6,
+        .team-profile-modal-body .team-profile-role,
+        .team-profile-modal-body .team-profile-close {
+            display: none !important;
+        }
+
+        .team-profile-modal-body .team-profile-qualification {
+            margin-top: 22px;
+            padding: 17px 20px;
+            border-left: 3px solid var(--gold);
+            background: rgba(180, 154, 104, .09);
+            color: var(--text);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        body.profile-modal-open {
+            overflow: hidden;
+        }
+
+        @media (max-width: 767px) {
+            .team-profile-modal {
+                padding: 12px;
+            }
+
+            .team-profile-dialog {
+                max-height: 92vh;
+            }
+
+            .team-profile-modal-content {
+                max-height: calc(92vh - 5px);
+                padding: 55px 22px 28px;
+            }
+
+            .team-profile-modal-content h3 {
+                margin-left: 12px;
+                margin-right: 12px;
+            }
+
+            .team-profile-modal-role {
+                margin-bottom: 20px;
+            }
+
+            .team-profile-modal-body {
+                font-size: 13px;
+                line-height: 1.75;
+            }
+
+            .team-profile-modal-close {
+                top: 12px;
+                right: 12px;
+            }
+        }
+
+        /* GOOGLE MAPS - CONTACT SECTION ADDITION */
+        .contact-map-wrap {
+            margin-top: 28px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--paper);
+        }
+
+        .contact-map-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 17px 21px;
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .contact-map-heading h4 {
+            margin: 0;
+            color: var(--white);
+            font-family: var(--heading-font);
+            font-size: 19px;
+        }
+
+        .contact-map-heading span {
+            color: var(--gold-light);
+            font-family: var(--modern-font);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .contact-map-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: var(--border);
+        }
+
+        .contact-map-card {
+            min-width: 0;
+            background: var(--white);
+        }
+
+        .contact-map-card h5 {
+            margin: 0;
+            padding: 13px 16px;
+            color: var(--navy);
+            font-family: var(--modern-font);
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .contact-map-card iframe {
+            display: block;
+            width: 100%;
+            height: 280px;
+            border: 0;
+        }
+
+        @media (max-width: 767px) {
+            .contact-map-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-map-card iframe {
+                height: 250px;
+            }
+
+            .contact-map-heading {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        /* CAREERS */
+
+        .careers-section {
+            background: var(--white);
+        }
+
+        .career-box {
+            position: relative;
+            overflow: hidden;
+            background: var(--navy);
+            padding: 55px 50px;
+        }
+
+        .career-box::after {
+            content: "";
+            position: absolute;
+            width: 340px;
+            height: 340px;
+            border: 1px solid rgba(180, 154, 104, .3);
+            border-radius: 50%;
+            right: -90px;
+            top: -150px;
+            box-shadow: 0 0 0 35px rgba(180, 154, 104, .035),
+                0 0 0 70px rgba(180, 154, 104, .025);
+        }
+
+        .career-box h2 {
+            position: relative;
+            z-index: 1;
+            font-family: var(--heading-font);
+            color: var(--white);
+            font-size: 38px;
+            margin-bottom: 17px;
+        }
+
+        .career-box p {
+            position: relative;
+            z-index: 1;
+            color: rgba(255, 255, 255, .72);
+            max-width: 650px;
+            line-height: 1.9;
+            font-size: 14px;
+        }
+
+        .career-box .btn-gold {
+            position: relative;
+            z-index: 1;
+            margin-top: 15px;
+        }
+
+        /* PANEL ADVOCATES */
+
+        .panel-advocates-section {
+            background: var(--paper);
+        }
+
+        .panel-intro-card {
+            height: 100%;
+            padding: 32px 27px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            transition: .4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .panel-intro-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(180, 154, 104, .6);
+            box-shadow: 0 20px 45px rgba(20, 36, 58, .09);
+        }
+
+        .panel-icon {
+            width: 58px;
+            height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(180, 154, 104, .13);
+            color: var(--gold-dark);
+            font-size: 25px;
+            margin-bottom: 22px;
+        }
+
+        .panel-intro-card h4 {
+            color: var(--navy);
+            font-family: var(--heading-font);
+            font-size: 21px;
+            margin-bottom: 13px;
+        }
+
+        .panel-intro-card p {
+            font-size: 13px;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .panel-list-wrapper {
+            margin-top: 55px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 40px;
+        }
+
+        .panel-list-heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .panel-list-heading h3 {
+            color: var(--navy);
+            font-family: var(--heading-font);
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .panel-list-heading p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .panel-list-grid {
+            border-top: 1px solid var(--border);
+        }
+
+        .panel-list-grid>div:first-child {
+            border-right: 1px solid var(--border);
+        }
+
+        .panel-list-item {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 21px 18px;
+            border-bottom: 1px solid var(--border);
+            transition: .3s ease;
+        }
+
+        .panel-list-item:hover {
+            background: var(--paper);
+            padding-left: 25px;
+        }
+
+        .panel-number {
+            color: var(--gold-dark);
+            font-family: var(--heading-font);
+            font-size: 22px;
+            min-width: 35px;
+        }
+
+        .panel-list-item h5 {
+            color: var(--navy);
+            font-family: var(--modern-font);
+            font-size: 14px;
+            font-weight: 800;
+            margin: 0 0 5px;
+        }
+
+        .panel-list-item p {
+            color: var(--muted);
+            font-size: 11px;
+            margin: 0;
+        }
+
+        .panel-list-item>i {
+            color: var(--gold-dark);
+            margin-left: auto;
+            font-size: 16px;
+        }
+
+        .panel-disclaimer {
+            margin-top: 25px;
+            padding: 15px 18px;
+            background: var(--paper);
+            color: var(--muted);
+            font-size: 11px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 767px) {
+            .panel-list-wrapper {
+                padding: 25px 18px;
+                margin-top: 35px;
+            }
+
+            .panel-list-heading h3 {
+                font-size: 25px;
+            }
+
+            .panel-list-grid>div:first-child {
+                border-right: none;
+            }
+
+            .panel-list-item {
+                padding: 18px 8px;
+            }
+
+            .panel-list-item:hover {
+                padding-left: 14px;
+            }
+        }
+
+        /* INSIGHTS */
+
+        .insights-section {
+            background: var(--paper);
+        }
+
+        .insight-card {
+            height: 100%;
+            background: var(--white);
+            border: 1px solid var(--border);
+            transition: .35s ease;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(20, 36, 58, .08);
+        }
+
+        .insight-icon {
+            height: 150px;
+            background: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-light);
+            font-size: 42px;
+        }
+
+        .insight-content {
+            padding: 25px;
+        }
+
+        .insight-content h5 {
+            color: var(--navy);
+            font-family: var(--heading-font);
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .insight-content p {
+            color: var(--text);
+            font-size: 13px;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .insight-note {
+            font-size: 11px;
+            color: var(--muted);
+            font-style: italic;
+            margin-top: 22px;
+        }
+
+        /* CONTACT */
+
+        .contact-section {
+            background: var(--white);
+        }
+
+        .contact-info-card {
+            height: 100%;
+            background: var(--navy);
+            padding: 35px 30px;
+            color: var(--white);
+        }
+
+        .contact-info-card h3 {
+            font-family: var(--heading-font);
+            color: var(--white);
+            font-size: 27px;
+            margin-bottom: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .contact-item i {
+            color: var(--gold-light);
+            font-size: 21px;
+            min-width: 22px;
+        }
+
+        .contact-item h6 {
+            color: var(--gold-light);
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 7px;
+        }
+
+        .contact-item p,
+        .contact-item a {
+            color: rgba(255, 255, 255, .78);
+            font-size: 13px;
+            line-height: 1.8;
+            margin: 0;
+            word-break: break-word;
+        }
+
+        .contact-item a:hover {
+            color: var(--gold-light);
+        }
+
+        .contact-form {
+            padding: 35px;
+            border: 1px solid var(--border);
+            background: var(--white);
+        }
+
+        .contact-form h3 {
+            font-family: var(--heading-font);
+            color: var(--navy);
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+
+        .form-control {
+            padding: 13px 15px;
+            border-radius: 2px;
+            border: 1px solid #deded9;
+            font-size: 13px;
+            background: #fcfcfa;
+        }
+
+        .form-control:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(180, 154, 104, .13);
+            background: var(--white);
+        }
+
+        textarea.form-control {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .contact-form label {
+            font-size: 12px;
+            color: var(--navy);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: var(--navy-dark);
+            color: rgba(255, 255, 255, .7);
+            padding: 65px 0 0;
+        }
+
+        .footer-brand {
+            color: var(--white);
+            font-family: var(--heading-font);
+            font-size: 27px;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .footer-brand-sub {
+            color: var(--gold-light);
+            font-size: 11px;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        footer p {
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        footer h5 {
+            color: var(--white);
+            font-family: var(--heading-font);
+            font-size: 19px;
+            margin-bottom: 22px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 11px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, .65);
+            font-size: 13px;
+            transition: .3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-light);
+            padding-left: 5px;
+        }
+
+        .footer-contact a {
+            color: rgba(255, 255, 255, .7);
+        }
+
+        .footer-contact a:hover {
+            color: var(--gold-light);
+        }
+
+        .footer-bottom {
+            margin-top: 45px;
+            padding: 22px 0;
+            border-top: 1px solid rgba(255, 255, 255, .12);
+            font-size: 12px;
+        }
+
+        .footer-bottom a {
+            color: var(--gold-light);
+        }
+
+        .disclaimer {
+            background: #091525;
+            color: rgba(255, 255, 255, .48);
+            padding: 17px 0;
+            font-size: 10px;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        /* BACK TO TOP */
+
+        #backToTop {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 45px;
+            height: 45px;
+            border: none;
+            background: var(--gold);
+            color: var(--navy-dark);
+            font-size: 18px;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: .3s ease;
+            cursor: pointer;
+        }
+
+        #backToTop.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        #backToTop:hover {
+            background: var(--gold-light);
+        }
+
+        /* SCROLL ANIMATION */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity .8s ease, transform .8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 {
+            transition-delay: .1s;
+        }
+
+        .delay-2 {
+            transition-delay: .2s;
+        }
+
+        .delay-3 {
+            transition-delay: .3s;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: var(--navy-dark);
+                padding: 15px 20px 20px;
+                margin-top: 15px;
+                border-top: 1px solid rgba(180, 154, 104, .25);
+            }
+
+            .navbar-nav {
+                gap: 2px;
+            }
+
+            .navbar .nav-link {
+                padding: 11px 5px !important;
+            }
+
+            .nav-contact {
+                display: inline-block;
+                margin: 10px 0 0;
+            }
+
+            .hero {
+                background-position: 62% center;
+            }
+
+            .about-image {
+                height: 420px;
+            }
+
+            .team-image-wrap {
+                height: 240px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            section {
+                padding: 70px 0;
+            }
+
+            .hero {
+                height: 610px;
+                min-height: 610px;
+                background-position: 65% center;
+            }
+
+            .hero::after {
+                width: 180px;
+                height: 180px;
+                right: -50px;
+                top: 18%;
+            }
+
+            .hero-content {
+                padding-top: 65px;
+            }
+
+            .hero h1 {
+                font-size: 39px;
+            }
+
+            .hero p {
+                font-size: 14px;
+                max-width: 100%;
+            }
+
+            .hero .btn-gold,
+            .hero .btn-outline-light-custom {
+                font-size: 10px;
+                padding: 12px 15px;
+            }
+
+            .moving-track span {
+                font-size: 12px;
+                padding: 0 22px;
+            }
+
+            .about-image-wrap {
+                margin-bottom: 25px;
+            }
+
+            .about-image {
+                height: 370px;
+            }
+
+            .about-points {
+                grid-template-columns: 1fr;
+            }
+
+            .career-box {
+                padding: 38px 25px;
+            }
+
+            .career-box h2 {
+                font-size: 30px;
+            }
+
+            .contact-form {
+                padding: 25px 20px;
+            }
+
+            .contact-info-card {
+                padding: 30px 23px;
+            }
+
+            .team-image-wrap {
+                height: 290px;
+            }
+
+            .footer-bottom {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .brand-main {
+                font-size: 23px;
+            }
+
+            .btn-outline-light-custom {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">ANVAYA</div>
+            <div class="loader-line"></div>
+            <small style="letter-spacing:3px;color:#d0bc91;">LEGAL</small>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+
+            <a class="navbar-brand" href="#home">
+                <span class="brand-main">ANVAYA</span>
+                <span class="brand-sub">अन्वय</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="#home">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">ABOUT</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#practice">PRACTICE AREAS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#approach">OUR APPROACH</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">OUR TEAM</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#panel-advocates">PANEL ADVOCATES</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#careers">CAREERS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#insights">INSIGHTS</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-contact" href="#contact">CONTACT US</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content reveal">
+                <span class="hero-label">ANVAYA LEGAL</span>
+
+                <h1>
+                    Clarity in Law.<br>
+                    Confidence in <span>Business.</span>
+                </h1>
+
+                <p>
+                    Strategic legal counsel and practical solutions
+                    for today's evolving business landscape.
+                </p>
+
+                <a href="#about" class="btn-gold">
+                    Discover Anvaya <i class="bi bi-arrow-right"></i>
+                </a>
+
+                <a href="#practice" class="btn-outline-light-custom">
+                    Explore Our Expertise
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MOVING STRIP -->
+    <div class="moving-strip">
+        <div class="moving-track">
+            <span><i class="bi bi-diamond-fill"></i> Banking & Finance</span>
+            <span><i class="bi bi-diamond-fill"></i> Real Estate</span>
+            <span><i class="bi bi-diamond-fill"></i> Project Finance</span>
+            <span><i class="bi bi-diamond-fill"></i> Corporate Advisory</span>
+            <span><i class="bi bi-diamond-fill"></i> Legal Audits</span>
+
+            <span><i class="bi bi-diamond-fill"></i> Banking & Finance</span>
+            <span><i class="bi bi-diamond-fill"></i> Real Estate</span>
+            <span><i class="bi bi-diamond-fill"></i> Project Finance</span>
+            <span><i class="bi bi-diamond-fill"></i> Corporate Advisory</span>
+            <span><i class="bi bi-diamond-fill"></i> Legal Audits</span>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="row align-items-center g-5">
+
+                <div class="col-lg-5 reveal">
+                    <div class="about-image-wrap">
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=90"
+                            alt="Professional legal office" class="about-image" loading="lazy">
+
+                        <div class="about-badge">
+                            <strong>ANVAYA</strong>
+                            <span>Legal Excellence</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 reveal delay-1">
+                    <span class="section-tag">Who We Are</span>
+
+                    <h2 class="section-title">
+                        Building Stronger Connections Through
+                        <span>Legal Excellence</span>
+                    </h2>
+
+                    <div class="gold-line"></div>
+
+                    <p class="section-desc mb-3">
+                        Anvaya is an Indian law firm established by lawyers
+                        with extensive experience and expertise in Real Estate,
+                        Banking & Finance, Corporate Laws, Restructuring and
+                        Insolvency.
+                    </p>
+
+                    <p class="section-desc mb-3">
+                        The word "Anvaya" signifies a logical connection of
+                        words to convey a meaningful idea. This philosophy
+                        reflects our approach to legal practice — connecting
+                        legal knowledge, commercial understanding and practical
+                        thinking to deliver meaningful solutions.
+                    </p>
+
+                    <p class="section-desc mb-3">
+                        We work closely with businesses, financial institutions
+                        and other clients to understand their requirements and
+                        provide effective, innovative and commercially practical
+                        legal solutions.
+                    </p>
+
+                    <p class="section-desc">
+                        Our lawyers bring decades of combined professional
+                        experience, with a strong focus on compliance,
+                        attention to detail and cost-effective legal advice.
+                        We believe in building lasting professional relationships
+                        through clarity, commitment and trust.
+                    </p>
+
+                    <div class="about-points">
+                        <div class="about-point">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>
+                                <h6>Practical Legal Solutions</h6>
+                                <p>Advice shaped around real business requirements.</p>
+                            </div>
+                        </div>
+
+                        <div class="about-point">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>
+                                <h6>Experienced Professionals</h6>
+                                <p>Decades of combined legal and industry experience.</p>
+                            </div>
+                        </div>
+
+                        <div class="about-point">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>
+                                <h6>Client-focused Approach</h6>
+                                <p>Understanding each client's unique objectives.</p>
+                            </div>
+                        </div>
+
+                        <div class="about-point">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>
+                                <h6>Commercial Perspective</h6>
+                                <p>Balancing legal requirements with business needs.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRACTICE AREAS -->
+    <section class="practice-section" id="practice">
+        <div class="container">
+
+            <div class="text-center mb-5 reveal">
+                <span class="section-tag">What We Do</span>
+                <h2 class="section-title">Our Areas of <span>Expertise</span></h2>
+                <div class="gold-line mx-auto"></div>
+                <p class="section-desc mx-auto" style="max-width:650px;">
+                    Our practice focuses on delivering comprehensive legal
+                    support across key areas of business, finance and property.
+                </p>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-lg-4 col-md-6 reveal">
+                    <div class="practice-card">
+                        <div class="practice-icon">
+                            <i class="bi bi-bank"></i>
+                        </div>
+                        <h4>Banking & Finance</h4>
+                        <p>
+                            Legal assistance across financing arrangements,
+                            lending transactions and financial restructuring.
+                        </p>
+                        <ul class="practice-list">
+                            <li><i class="bi bi-arrow-right"></i> Construction Financing</li>
+                            <li><i class="bi bi-arrow-right"></i> Acquisition Financing</li>
+                            <li><i class="bi bi-arrow-right"></i> Structured Financing</li>
+                            <li><i class="bi bi-arrow-right"></i> Debt Restructuring</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 reveal delay-1">
+                    <div class="practice-card">
+                        <div class="practice-icon">
+                            <i class="bi bi-buildings"></i>
+                        </div>
+                        <h4>Real Estate</h4>
+                        <p>
+                            Supporting real estate transactions through legal
+                            due diligence, documentation and advisory.
+                        </p>
+                        <ul class="practice-list">
+                            <li><i class="bi bi-arrow-right"></i> Title Due Diligence</li>
+                            <li><i class="bi bi-arrow-right"></i> Land Acquisition Transactions</li>
+                            <li><i class="bi bi-arrow-right"></i> Lease Agreements</li>
+                            <li><i class="bi bi-arrow-right"></i> Conveyance Deeds & Registration</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 reveal delay-2">
+                    <div class="practice-card">
+                        <div class="practice-icon">
+                            <i class="bi bi-diagram-3"></i>
+                        </div>
+                        <h4>Project Finance</h4>
+                        <p>
+                            Legal support for project development, contractual
+                            arrangements and financing documentation.
+                        </p>
+                        <ul class="practice-list">
+                            <li><i class="bi bi-arrow-right"></i> EPC Contracts</li>
+                            <li><i class="bi bi-arrow-right"></i> O&M Contracts</li>
+                            <li><i class="bi bi-arrow-right"></i> Finance & Security Documents</li>
+                            <li><i class="bi bi-arrow-right"></i> Share Purchase Agreements</li>
+                            <li><i class="bi bi-arrow-right"></i> Shareholders Agreements</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 reveal">
+                    <div class="practice-card">
+                        <div class="practice-icon">
+                            <i class="bi bi-clipboard2-check"></i>
+                        </div>
+                        <h4>Legal Audits</h4>
+                        <p>
+                            Legal review and audit support for financial
+                            institutions and banking organisations.
+                        </p>
+                        <ul class="practice-list">
+                            <li><i class="bi bi-arrow-right"></i> Finance Document Audits</li>
+                            <li><i class="bi bi-arrow-right"></i> Security Document Audits</li>
+                            <li><i class="bi bi-arrow-right"></i> Documentation Review</li>
+                            <li><i class="bi bi-arrow-right"></i> Legal Compliance Review</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 reveal delay-1">
+                    <div class="practice-card">
+                        <div class="practice-icon">
+                            <i class="bi bi-briefcase"></i>
+                        </div>
+                        <h4>Corporate & Commercial</h4>
+                        <p>
+                            Legal assistance for business transactions,
+                            commercial arrangements and corporate matters.
+                        </p>
+                        <ul class="practice-list">
+                            <li><i class="bi bi-arrow-right"></i> Corporate Advisory</li>
+                            <li><i class="bi bi-arrow-right"></i> Commercial Agreements</li>
+                            <li><i class="bi bi-arrow-right"></i> Transaction Documentation</li>
+                            <li><i class="bi bi-arrow-right"></i> Business Legal Support</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 reveal delay-2">
+                    <div class="practice-card">
+                        <div class="practice-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h4>Dispute Resolution & Advisory</h4>
+                        <p>
+                            Legal guidance in relation to commercial matters,
+                            disputes and associated advisory requirements.
+                        </p>
+                        <ul class="practice-list">
+                            <li><i class="bi bi-arrow-right"></i> Arbitration & ADR</li>
+                            <li><i class="bi bi-arrow-right"></i> Civil & Commercial Matters</li>
+                            <li><i class="bi bi-arrow-right"></i> Insolvency Matters</li>
+                            <li><i class="bi bi-arrow-right"></i> Legal Advisory</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- APPROACH -->
+    <section class="approach-section" id="approach">
+        <div class="container">
+
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-7 reveal">
+                    <span class="section-tag">Our Philosophy</span>
+                    <h2 class="section-title">
+                        A Thoughtful Approach to
+                        <span>Every Legal Challenge</span>
+                    </h2>
+                    <div class="gold-line"></div>
+                </div>
+
+                <div class="col-lg-5 reveal delay-1">
+                    <p class="section-desc">
+                        We believe effective legal advice begins with listening,
+                        understanding the bigger picture and identifying solutions
+                        that serve our clients' long-term interests.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-lg-3 col-md-6 reveal">
+                    <div class="approach-card">
+                        <div class="approach-number">01</div>
+                        <h5>Understand</h5>
+                        <p>
+                            We begin by understanding the client's business,
+                            objectives and legal requirements.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 reveal delay-1">
+                    <div class="approach-card">
+                        <div class="approach-number">02</div>
+                        <h5>Analyse</h5>
+                        <p>
+                            We carefully assess legal, commercial and
+                            regulatory considerations.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 reveal delay-2">
+                    <div class="approach-card">
+                        <div class="approach-number">03</div>
+                        <h5>Strategise</h5>
+                        <p>
+                            We develop practical and thoughtful approaches
+                            tailored to the matter.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 reveal delay-3">
+                    <div class="approach-card">
+                        <div class="approach-number">04</div>
+                        <h5>Deliver</h5>
+                        <p>
+                            We work towards clear, effective and commercially
+                            sensible legal outcomes.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="team-section" id="team">
+        <div class="container">
+
+            <div class="text-center mb-5 reveal">
+                <span class="section-tag">Our People</span>
+                <h2 class="section-title">Meet Our <span>Legal Team</span></h2>
+                <div class="gold-line mx-auto"></div>
+                <p class="section-desc mx-auto" style="max-width:650px;">
+                    Our team brings together professional experience,
+                    legal knowledge and a commitment to thoughtful client service.
+                </p>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-lg-3 col-md-6 reveal">
+                    <div class="team-card">
+                        <div class="team-image-wrap">
+                            <img src="https://anvayalegal.co.in/assets/img/team/Ashok.jpg" alt="Ashok Kamble"
+                                loading="lazy">
+                        </div>
+                        <div class="team-info">
+                            <h5>Ashok Kamble</h5>
+                            <div class="role">Managing Partner</div>
+                            <p>
+                                LL.B. – Mumbai University<br>
+                                B.Sc. – Shivaji University, Kolhapur
+                            </p>
+                            <button class="team-more-btn" type="button" aria-expanded="false"
+                                aria-controls="profile-ashok-kamble" data-profile-toggle="profile-ashok-kamble">
+                                View Profile <i class="bi bi-arrow-down-right"></i>
+                            </button>
+                            <div class="team-profile-details" id="profile-ashok-kamble" hidden>
+                                <button class="team-profile-close" type="button" aria-label="Close profile"
+                                    data-profile-close="profile-ashok-kamble">
+                                    <i class="bi bi-x-lg"></i>
+                                </button>
+                                <span class="team-profile-label">Professional Profile</span>
+                                <h6>Ashok Kamble</h6>
+                                <div class="team-profile-role">Managing Partner</div>
+                                <p>
+                                    <a4>
+                                        <h5>AREAS OF PRACTICE:</h5>Real Estate, Banking and Finance,
+                                        Title Due Diligence,
+                                        Securitization & other SARAFAESI matters including matters relating to Asset
+                                        Reconstruction Companies (ARCs)
+                                        and Compliances and Legal Audit.
+                                </p>
+                                <p>
+                                    <a4>
+                                        <h5>EXPERIENCE:</h5>Ashok is the Managing Partner of Anvaya Legal. Ashok has an
+                                        extensive experience
+                                        of over four decades in Real Estate Sector, Banking and Finance, Securitization
+                                        and other SARAFAESI
+                                        matters including matters relating to Asset Reconstruction Companies (ARCs). He
+                                        also advises on Stamp Duty,
+                                        Adjudication and Registration of Documents. Ashok is actively involved in
+                                        conducting titledue diligence and advising banks
+                                        and financial institutions, corporates, developers and landowners on various
+                                        complex real estate projects including joint
+                                        development projects, integratedtownships, Special Economic Zones, Slum
+                                        Rehabilitation Projects. Ashok also leads a team
+                                        of lawyers who specialise in conducting compliances and legal audit for banks
+                                        and financ ial ins titutions. <br>
+                                        Ashok has provided his valuable services to the legal department of Maharashtra
+                                        State Financial Corporation
+                                        and erstwhile Industrial Development Bank of India now known as IDBI Bank for
+                                        more than two and a half decades.
+                                        As an in-house counsel of IDBI, Ashok has led several complex assignments
+                                        involving title due diligence and creation
+                                        of security. In 2006, Ashok joined Reliance Asset Reconstruction Company Limited
+                                        and went on to become the Group Legal
+                                        Head of Reliance Capital Limited. Prior to joining the Firm, he was a Senior
+                                        Partner at Orbit Law Services
+                                </p>
+
+                                <p>
+                                    <a4>
+                                        <h5>Call:</h5>+91 98702 28916
+                                </p>
+
+                                <p>
+                                    <a4>
+                                        <h5>Email:</h5>ashok.kamble@anvayalegal.co.in
+                                </p>
+                                <div class="team-profile-qualification"><strong>Qualifications</strong><br>LL.B. –
+                                    Mumbai University; B.Sc. – Shivaji University, Kolhapur</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 reveal delay-1">
+                    <div class="team-card">
+                        <div class="team-image-wrap">
+                            <img src="https://anvayalegal.co.in/assets/img/team/trisha.jpg" alt="Trisha Kulkarni"
+                                loading="lazy">
+                        </div>
+                        <div class="team-info">
+                            <h5>Trisha Kulkarni</h5>
+                            <div class="role">Senior Partner</div>
+                            <p>
+                                LL.B. – Mumbai University<br>
+                                B.Com. – Mumbai University
+                            </p>
+                            <button class="team-more-btn" type="button" aria-expanded="false"
+                                aria-controls="profile-trisha-kulkarni" data-profile-toggle="profile-trisha-kulkarni">
+                                View Profile <i class="bi bi-arrow-down-right"></i>
+                            </button>
+                            <div class="team-profile-details" id="profile-trisha-kulkarni" hidden>
+                                <button class="team-profile-close" type="button" aria-label="Close profile"
+                                    data-profile-close="profile-trisha-kulkarni">
+                                    <i class="bi bi-x-lg"></i>
+                                </button>
+                                <span class="team-profile-label">Professional Profile</span>
+                                <h6>Trisha Kulkarni</h6>
+                                <div class="team-profile-role">Senior Partner</div>
+
+                                <p>
+                                    <a4>
+                                        <h5>AREAS OF PRACTICE:</h5>Banking & Finance, Project Finance, Corporate Debt
+                                        Restructuring.
+                                </p>
+                                <p>
+                                    <a4>
+                                        <h5>EXPERIENCE:</h5>Trisha is a Senior Partner at Anvaya Legal. Trisha’s
+                                        practice focuses primarily on Banking & Finance, Project finance and Corporate
+                                        Commercial Transactions. Trisha has more than two decades of significant
+                                        experience in drafting finance and security documents for banks & financial
+                                        institutions in lending transactions, corporate debt restructuring, conducting
+                                        corporate due diligence connected with acquisition transactions, structuring of
+                                        escrow mechanism for startups providing online services and drafting of
+                                        debenture documents related to bond issuances. <br>
+                                        Trisha has extensively worked in various sectors including roads, real
+                                        estate,renewable energy, ports, power and logistics. She has advised one of
+                                        theleading public sector banks on acquisition transaction and regulatory
+                                        compliances thereof.
+                                        Having started her career with practice in litigation and handling property
+                                        matters, she went on to become an in-house counsel of 3i Infotech Trusteeship
+                                        Services Limited (a wholly owned subsidiary of 3i Infotech) and thereafter at
+                                        Reliance Infrastructure Limited. Trisha has later on joined Clasis Law. Prior to
+                                        joining the Firm, she was a Senior Partner at Orbit Law Services.
+
+                                </p>
+
+                                <p>
+                                    <a4>
+                                        <h5>Call:</h5> +91 98190 40121
+                                </p>
+
+                                <p>
+                                    <a4>
+                                        <h5>Email:</h5>trisha.kulkarni@anvayalegal.co.in
+                                </p>
+
+                                <div class="team-profile-qualification"><strong>Qualifications</strong><br>LL.B. –
+                                    Mumbai University; B.Com. – Mumbai University</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 reveal delay-2">
+                    <div class="team-card">
+                        <div class="team-image-wrap">
+                            <img src="https://anvayalegal.co.in/assets/img/team/himanshu.jpg" alt="Himanshu Shah"
+                                loading="lazy">
+                        </div>
+                        <div class="team-info">
+                            <h5>Himanshu Shah</h5>
+                            <div class="role">Partner</div>
+                            <p>
+                                B.A. LL.B. (Hons.) – Indore University<br>
+                                PGDBM – NMIMS | CS Final
+                            </p>
+                            <button class="team-more-btn" type="button" aria-expanded="false"
+                                aria-controls="profile-himanshu-shah" data-profile-toggle="profile-himanshu-shah">
+                                View Profile <i class="bi bi-arrow-down-right"></i>
+                            </button>
+                            <div class="team-profile-details" id="profile-himanshu-shah" hidden>
+                                <button class="team-profile-close" type="button" aria-label="Close profile"
+                                    data-profile-close="profile-himanshu-shah">
+                                    <i class="bi bi-x-lg"></i>
+                                </button>
+                                <span class="team-profile-label">Professional Profile</span>
+                                <h6>Himanshu Shah</h6>
+                                <div class="team-profile-role">Partner</div>
+                                <p>
+                                    <a4>
+                                        <h5>AREAS OF PRACTICE:</h5> Banking & Finance, Project Finance, Corporate Debt
+                                        Restructuring.
+                                </p>
+                                <p>
+                                    <a4>
+                                        <h5>EXPERIENCE:</h5>Himanshu is a Partner at Anvaya Legal. With more than 7
+                                        years’ experience,Himanshu focuses on project finance, banking and structured
+                                        financing. Himanshu has advised leading corporates on bond issuances and
+                                        corporateand regulatory compliances.. <br>
+                                        Himanshu has an extensive experience in drafting finance and security documents,
+                                        debenture documents and project documents. He has advised corporates in drafting
+                                        of project documents including power purchase agreements, EPC contracts and
+                                        operation and maintenance agreements.
+                                        Prior to joining the Firm, Himanshu was a Principal Associate at Orbit Law
+                                        Services and was previously a Senior Associate at K Law.
+                                </p>
+
+                                <p>
+                                    <a4>
+                                        <h5>Call:</h5>+91 99204 01925
+                                </p>
+
+                                <p>
+                                    <a4>
+                                        <h5>Email:</h5>himanshu.shah@anvayalegal.co.in
+                                </p>
+                                <div class="team-profile-qualification"><strong>Qualifications</strong><br>B.A. LL.B.
+                                    (Hons.) – Indore University; PGDBM – NMIMS; CS Final</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 reveal delay-3">
+                    <div class="team-card">
+                        <div class="team-image-wrap">
+                            <img src="https://img.freepik.com/premium-photo/young-successful-businessman-sitting-workplace-office-background_926199-1043314.jpg"
+                                alt="Nitesh Agarwal" loading="lazy">
+                        </div>
+                        <div class="team-info">
+                            <h5>Nitesh Agarwal</h5>
+                            <div class="role">Off-Counsel</div>
+                            <p>
+                                LL.B. – Mumbai University<br>
+                                PGDBM – Banking & Finance
+                            </p>
+                            <button class="team-more-btn" type="button" aria-expanded="false"
+                                aria-controls="profile-nitesh-agarwal" data-profile-toggle="profile-nitesh-agarwal">
+                                View Profile <i class="bi bi-arrow-down-right"></i>
+                            </button>
+                            <div class="team-profile-details" id="profile-nitesh-agarwal" hidden>
+                                <button class="team-profile-close" type="button" aria-label="Close profile"
+                                    data-profile-close="profile-nitesh-agarwal">
+                                    <i class="bi bi-x-lg"></i>
+                                </button>
+                                <span class="team-profile-label">Professional Profile</span>
+                                <h6>Nitesh Agarwal</h6>
+                                <div class="team-profile-role">Off-Counsel</div>
+                                <p>Off-Counsel at Anvaya Legal. The qualifications listed by the firm are LL.B. from
+                                    Mumbai University and PGDBM in Banking & Finance.</p>
+                                <div class="team-profile-qualification"><strong>Qualifications</strong><br>LL.B. –
+                                    Mumbai University; PGDBM – Banking & Finance</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 reveal delay-3">
+                    <div class="team-card">
+                        <div class="team-image-wrap">
+                            <img src="https://cdn.shopify.com/s/files/1/0291/6266/8110/files/charcoal-blazer-light-blue-shirt-first-impressions-fashion_1024x1024.png?v=1738881310"
+                                alt="Roshan Patil" loading="lazy">
+                        </div>
+                        <div class="team-info">
+                            <h5>Roshan Patil</h5>
+                            <div class="role">Team Head</div>
+                            <p>
+                                LL.M. – Pune University<br>
+                                PGDBM – Banking Sector
+                            </p>
+                            <button class="team-more-btn" type="button" aria-expanded="false"
+                                aria-controls="profile-roshan-patil" data-profile-toggle="profile-roshan-patil">
+                                View Profile <i class="bi bi-arrow-down-right"></i>
+                            </button>
+                            <div class="team-profile-details" id="profile-roshan-patil" hidden>
+                                <button class="team-profile-close" type="button" aria-label="Close profile"
+                                    data-profile-close="profile-roshan-patil">
+                                    <i class="bi bi-x-lg"></i>
+                                </button>
+                                <span class="team-profile-label">Professional Profile</span>
+                                <h6>Roshan Patil</h6>
+                                <div class="team-profile-role">Team Head</div>
+                                <p>Team Head at Anvaya Legal. The qualifications listed by the firm are LL.M. from Pune
+                                    University and PGDBM in the Banking Sector.</p>
+                                <div class="team-profile-qualification"><strong>Qualifications</strong><br>LL.M. – Pune
+                                    University; PGDBM – Banking Sector</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PANEL ADVOCATES -->
+    <section class="panel-advocates-section" id="panel-advocates">
+        <div class="container">
+
+            <div class="text-center mb-5 reveal">
+                <span class="section-tag">Our Professional Network</span>
+
+                <h2 class="section-title">
+                    Panel <span>Advocates</span>
+                </h2>
+
+                <div class="gold-line mx-auto"></div>
+
+                <p class="section-desc mx-auto" style="max-width:700px;">
+                    Anvaya Legal provides legal assistance and professional
+                    support in banking, finance, real estate and related
+                    matters. Our professional network is focused on
+                    delivering reliable and commercially practical legal
+                    services to financial institutions and organisations.
+                </p>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-lg-4 col-md-6 reveal">
+                    <div class="panel-intro-card">
+                        <div class="panel-icon">
+                            <i class="bi bi-bank"></i>
+                        </div>
+
+                        <h4>Banking Institutions</h4>
+
+                        <p>
+                            Legal assistance in banking transactions,
+                            documentation, security creation, due diligence
+                            and financial matters.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 reveal delay-1">
+                    <div class="panel-intro-card">
+                        <div class="panel-icon">
+                            <i class="bi bi-buildings"></i>
+                        </div>
+
+                        <h4>Financial Institutions</h4>
+
+                        <p>
+                            Legal support for financial institutions in
+                            lending transactions, documentation audits,
+                            property verification and compliance.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 reveal delay-2">
+                    <div class="panel-intro-card">
+                        <div class="panel-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+
+                        <h4>Legal & Transaction Support</h4>
+
+                        <p>
+                            Comprehensive legal assistance through
+                            documentation review, transactional advisory
+                            and related legal services.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="panel-list-wrapper reveal">
+
+                <div class="panel-list-heading">
+                    <span class="section-tag">Institutional Network</span>
+
+                    <h3>Banking & Financial Institutions</h3>
+
+                    <p>
+                        Illustrative institution list. Actual empanelment
+                        details are subject to confirmation.
+                    </p>
+                </div>
+
+                <div class="row g-0 panel-list-grid">
+
+                    <div class="col-lg-6">
+
+                        <div class="panel-list-item">
+                            <span class="panel-number">01</span>
+                            <div>
+                                <h5>YES Bank Ltd</h5>
+                                <p>Public Sector Bank</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                        <div class="panel-list-item">
+                            <span class="panel-number">02</span>
+                            <div>
+                                <h5>Union Bank of India</h5>
+                                <p>Public Sector Bank</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                        <div class="panel-list-item">
+                            <span class="panel-number">03</span>
+                            <div>
+                                <h5>UCO Bank</h5>
+                                <p>Public Sector Bank</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                        <div class="panel-list-item">
+                            <span class="panel-number">04</span>
+                            <div>
+                                <h5>Axis Finance Ltd</h5>
+                                <p>Public Sector Bank</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                        <div class="panel-list-item">
+                            <span class="panel-number">05</span>
+                            <div>
+                                <h5>Vivriti Capital Limited</h5>
+                                <p>Public Sector Bank</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                        <div class="panel-list-item">
+                            <span class="panel-number">06</span>
+                            <div>
+                                <h5>Bank of India</h5>
+                                <p>Public Sector Bank</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                        <div class="panel-list-item">
+                            <span class="panel-number">07</span>
+                            <div>
+                                <h5>Bank of Maharashtra</h5>
+                                <p>Public Sector Bank</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+                        <div class="panel-list-item">
+                            <span class="panel-number">08</span>
+                            <div>
+                                <h5>Arka Fincap Limited</h5>
+                                <p>Public Sector Bank</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                        <div class="panel-list-item">
+                            <span class="panel-number">09</span>
+                            <div>
+                                <h5>State Bank of India</h5>
+                                <p>Public Sector Bank</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                        <div class="panel-list-item">
+                            <span class="panel-number">10</span>
+                            <div>
+                                <h5>SBM Bank</h5>
+                                <p>Public Sector Bank</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                        <div class="panel-list-item">
+                            <span class="panel-number">11</span>
+                            <div>
+                                <h5>Bank Of Baroda</h5>
+                                <p>Public Sector Bank</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                        <div class="panel-list-item">
+                            <span class="panel-number">12</span>
+                            <div>
+                                <h5>Canara Bank</h5>
+                                <p>Public Sector Bank</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6">
+
+                        <div class="panel-list-item">
+                            <span class="panel-number">13</span>
+                            <div>
+                                <h5>Edelweiss Asset Reconstruction Company Limited</h5>
+                                <p>Private Sector Bank</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                        <div class="panel-list-item">
+                            <span class="panel-number">14</span>
+                            <div>
+                                <h5>STCI Finance Limited</h5>
+                                <p>Private Sector Bank</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                        <div class="panel-list-item">
+                            <span class="panel-number">15</span>
+                            <div>
+                                <h5>Punjab National Bank</h5>
+                                <p>Private Sector Bank</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                        <div class="panel-list-item">
+                            <span class="panel-number">16</span>
+                            <div>
+                                <h5>NABFID</h5>
+                                <p>Private Sector Bank</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                        <div class="panel-list-item">
+                            <span class="panel-number">17</span>
+                            <div>
+                                <h5>IDBI Bank Ltd</h5>
+                                <p>Private Sector Bank</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                        <div class="panel-list-item">
+                            <span class="panel-number">18</span>
+                            <div>
+                                <h5>NARCL</h5>
+                                <p>Private Sector Bank</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                        <div class="panel-list-item">
+                            <span class="panel-number">19</span>
+                            <div>
+                                <h5>Central Bank Of India</h5>
+                                <p>Private Sector Bank</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                        <div class="panel-list-item">
+                            <span class="panel-number">20</span>
+                            <div>
+                                <h5>Bajaj Finance Ltd</h5>
+                                <p>Private Sector Bank</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                        <div class="panel-list-item">
+                            <span class="panel-number">21</span>
+                            <div>
+                                <h5>EXIM</h5>
+                                <p>Private Sector Bank</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                        <div class="panel-list-item">
+                            <span class="panel-number">22</span>
+                            <div>
+                                <h5>Jana Small Finance Bank limited</h5>
+                                <p>Private Sector Bank</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                        <div class="panel-list-item">
+                            <span class="panel-number">23</span>
+                            <div>
+                                <h5>HDFC Bank Ltd</h5>
+                                <p>Subject to confirmation</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                        <div class="panel-list-item">
+                            <span class="panel-number">24</span>
+                            <div>
+                                <h5>Other Financial Institutions</h5>
+                                <p>Subject to confirmation</p>
+                            </div>
+                            <i class="bi bi-arrow-up-right"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="panel-disclaimer">
+                    <i class="bi bi-info-circle me-2"></i>
+                    The following banks and financial institutions have confirmed empanelment relationships with Anvaya
+                    Legals.
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CAREERS -->
+    <section class="careers-section" id="careers">
+        <div class="container">
+            <div class="career-box reveal">
+
+                <span class="section-tag">Opportunities</span>
+
+                <h2>Build Your Career With Anvaya</h2>
+
+                <p>
+                    We value individuals who bring dedication, professional
+                    curiosity and a thoughtful approach to the practice of law.
+                    If you are interested in being part of a professional
+                    environment focused on learning, collaboration and
+                    meaningful legal work, we would be pleased to hear from you.
+                </p>
+
+                <a href="mailto:info@anvayalegal.co.in?subject=Career%20Enquiry" class="btn-gold">
+                    Explore Opportunities
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INSIGHTS -->
+    <section class="insights-section" id="insights">
+        <div class="container">
+
+            <div class="text-center mb-5 reveal">
+                <span class="section-tag">Knowledge & Perspective</span>
+                <h2 class="section-title">Legal & Business <span>Insights</span></h2>
+                <div class="gold-line mx-auto"></div>
+                <p class="section-desc mx-auto" style="max-width:650px;">
+                    Explore key areas of legal practice that shape today's
+                    business and financial environment.
+                </p>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-lg-4 col-md-6 reveal">
+                    <div class="insight-card">
+                        <div class="insight-icon">
+                            <i class="bi bi-bank2"></i>
+                        </div>
+                        <div class="insight-content">
+                            <h5>Banking & Financial Transactions</h5>
+                            <p>
+                                Understanding the legal framework behind lending,
+                                financing arrangements, security documentation
+                                and financial transactions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 reveal delay-1">
+                    <div class="insight-card">
+                        <div class="insight-icon">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <div class="insight-content">
+                            <h5>Real Estate & Due Diligence</h5>
+                            <p>
+                                The importance of property title verification,
+                                legal documentation and due diligence in
+                                real estate transactions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 reveal delay-2">
+                    <div class="insight-card">
+                        <div class="insight-icon">
+                            <i class="bi bi-file-earmark-ruled"></i>
+                        </div>
+                        <div class="insight-content">
+                            <h5>Corporate & Project Documentation</h5>
+                            <p>
+                                Exploring the role of well-structured contracts
+                                and documentation in business and project
+                                development.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="insight-note text-center">
+
+            </p>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+
+            <div class="text-center mb-5 reveal">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Let's Start a <span>Conversation</span></h2>
+                <div class="gold-line mx-auto"></div>
+                <p class="section-desc mx-auto" style="max-width:650px;">
+                    For general enquiries, please get in touch with our team
+                    through the contact details below.
+                </p>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-lg-5 reveal">
+                    <div class="contact-info-card">
+
+                        <h3>Contact Information</h3>
+
+                        <div class="contact-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <div>
+                                <h6>Mumbai Office</h6>
+                                <p>
+                                    72, 7th floor & 134, 13th Floor,‘B’ Wing,<br>
+                                    Mittal Courtt, Nariman Point,<br>
+                                    Mumbai – 400 021
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <div>
+                                <h6>Delhi Office</h6>
+                                <p>
+                                    13/05, Ground Floor,<br>
+                                    East Patel Nagar,<br>
+                                    Delhi – 110 008
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="bi bi-telephone"></i>
+                            <div>
+                                <h6>Phone</h6>
+                                <p>
+                                    <a href="tel:+912231219150">+91 22 3121 9150</a><br>
+                                    <a href="tel:+912235215164">+91 22 3521 5164</a><br>
+                                    <a href="tel:01145120821">011-45120821</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="bi bi-envelope"></i>
+                            <div>
+                                <h6>Email</h6>
+                                <p>
+                                    <a href="mailto:info@anvayalegal.co.in">
+                                        info@anvayalegal.co.in
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-7 reveal delay-1">
+                    <div class="contact-form">
+
+                        <h3>Send Us an Enquiry</h3>
+
+                        <form id="contactForm">
+
+                            <div class="row g-3">
+
+                                <div class="col-md-6">
+                                    <label for="name">Your Name</label>
+                                    <input type="text" id="name" class="form-control" placeholder="Enter your name"
+                                        required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" class="form-control" placeholder="Enter your email"
+                                        required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" class="form-control"
+                                        placeholder="Enter your phone number">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="subject">Subject</label>
+                                    <input type="text" id="subject" class="form-control" placeholder="Enquiry subject"
+                                        required>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="message">Your Message</label>
+                                    <textarea id="message" class="form-control" placeholder="Write your message here..."
+                                        required></textarea>
+                                </div>
+
+                                <div class="col-12">
+                                    <button type="submit" class="btn-gold">
+                                        Submit Enquiry
+                                        <i class="bi bi-arrow-right"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="contact-map-wrap reveal">
+                <div class="contact-map-heading">
+                    <h4>Find Our Offices</h4>
+                    <span><i class="bi bi-geo-alt-fill me-1"></i> Mumbai & Delhi</span>
+                </div>
+                <div class="contact-map-grid">
+                    <div class="contact-map-card">
+                        <h5><i class="bi bi-geo-alt me-2" style="color:var(--gold-dark);"></i>Mumbai Office</h5>
+                        <iframe title="Google Map - Anvaya Legal Mumbai Office"
+                            src="https://www.google.com/maps?q=134%2C%2013th%20Floor%2C%20B%20Wing%2C%20Mittal%20Court%2C%20Nariman%20Point%2C%20Mumbai%20400021&output=embed"
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="contact-map-card">
+                        <h5><i class="bi bi-geo-alt me-2" style="color:var(--gold-dark);"></i>Delhi Office</h5>
+                        <iframe title="Google Map - Anvaya Legal Delhi Office"
+                            src="https://www.google.com/maps?q=13%2F05%2C%20Ground%20Floor%2C%20East%20Patel%20Nagar%2C%20Delhi%20110008&output=embed"
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+
+            <div class="row g-4">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand">ANVAYA</div>
+                    <div class="footer-brand-sub">अन्वय</div>
+
+                    <p>
+                        An Indian law firm providing practical and effective
+                        legal solutions across Real Estate, Banking & Finance,
+                        Project Finance, Corporate Laws and related areas.
+                    </p>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#practice">Practice Areas</a></li>
+                        <li><a href="#approach">Our Approach</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5>Practice Areas</h5>
+                    <ul class="footer-links">
+                        <li><a href="#practice">Banking & Finance</a></li>
+                        <li><a href="#practice">Real Estate</a></li>
+                        <li><a href="#practice">Project Finance</a></li>
+                        <li><a href="#practice">Legal Audits</a></li>
+                        <li><a href="#practice">Corporate Advisory</a></li>
+                        <li><a href="#practice">Dispute Resolution</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h5>Contact Us</h5>
+                    <p>
+                        <i class="bi bi-geo-alt me-2" style="color:#d0bc91;"></i>
+                        Mumbai, Maharashtra
+                    </p>
+                    <p>
+                        <i class="bi bi-telephone me-2" style="color:#d0bc91;"></i>
+                        <a href="tel:+912231219150">+91 22 3121 9150</a>
+                    </p>
+                    <p>
+                        <i class="bi bi-envelope me-2" style="color:#d0bc91;"></i>
+                        <a href="mailto:info@anvayalegal.co.in">
+                            info@anvayalegal.co.in
+                        </a>
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        © <span id="year"></span> Anvaya Legal. All Rights Reserved.
+                    </div>
+                    <div class="col-md-6 text-md-end mt-2 mt-md-0">
+                        Designed & Developed by @Code Universe Technology.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="disclaimer">
+            As per the rules of the Bar Council of India, advocates are not
+            permitted to solicit work or advertise. By accessing this website,
+            you acknowledge that you are seeking information about Anvaya Legal
+            on your own initiative and that no form of solicitation has been
+            made by the firm or its members. The information on this website
+            is for general informational purposes only and should not be
+            construed as legal advice.
+        </div>
+    </footer>
+
+    <!-- TEAM MEMBER PROFILE MODAL -->
+    <div class="team-profile-modal" id="teamProfileModal" aria-hidden="true">
+        <div class="team-profile-dialog" role="dialog" aria-modal="true" aria-labelledby="teamProfileModalName">
+            <div class="team-profile-modal-topline"></div>
+            <div class="team-profile-modal-content">
+                <button class="team-profile-modal-close" type="button" aria-label="Close profile">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+                <span class="team-profile-modal-kicker">Anvaya Legal · Professional Profile</span>
+                <h3 id="teamProfileModalName"></h3>
+                <div class="team-profile-modal-role" id="teamProfileModalRole"></div>
+                <div class="team-profile-modal-rule"></div>
+                <div class="team-profile-modal-body" id="teamProfileModalBody"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BACK TO TOP -->
+    <button id="backToTop" aria-label="Back to top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // PRELOADER
+        window.addEventListener("load", function () {
+            const preloader = document.getElementById("preloader");
+
+            setTimeout(function () {
+                preloader.classList.add("hide");
+            }, 500);
+        });
+
+        // FOOTER YEAR
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        // NAVBAR SCROLL EFFECT
+        const navbar = document.querySelector(".navbar");
+
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 60) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+
+        // BACK TO TOP BUTTON
+        const backToTop = document.getElementById("backToTop");
+
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 350) {
+                backToTop.classList.add("show");
+            } else {
+                backToTop.classList.remove("show");
+            }
+        });
+
+        backToTop.addEventListener("click", function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+        // SCROLL REVEAL ANIMATION
+        const revealElements = document.querySelectorAll(".reveal");
+
+        const revealObserver = new IntersectionObserver(
+            function (entries, observer) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+        revealElements.forEach(function (element) {
+            revealObserver.observe(element);
+        });
+
+        // CLOSE MOBILE NAVBAR AFTER CLICK
+        document.querySelectorAll(".navbar .nav-link").forEach(function (link) {
+            link.addEventListener("click", function () {
+                const navbarMenu = document.getElementById("mainNavbar");
+
+                if (navbarMenu.classList.contains("show")) {
+                    bootstrap.Collapse.getOrCreateInstance(navbarMenu).hide();
+                }
+            });
+        });
+
+        // TEAM MEMBER PROFILE MODAL
+        (function () {
+            const modal = document.getElementById("teamProfileModal");
+            const modalName = document.getElementById("teamProfileModalName");
+            const modalRole = document.getElementById("teamProfileModalRole");
+            const modalBody = document.getElementById("teamProfileModalBody");
+            const closeButton = modal.querySelector(".team-profile-modal-close");
+            let lastFocusedButton = null;
+
+            function closeProfileModal() {
+                modal.classList.remove("is-open");
+                modal.setAttribute("aria-hidden", "true");
+                document.body.classList.remove("profile-modal-open");
+                modalBody.innerHTML = "";
+                if (lastFocusedButton) lastFocusedButton.focus();
+            }
+
+            document.querySelectorAll("[data-profile-toggle]").forEach(function (button) {
+                button.addEventListener("click", function () {
+                    const profileId = button.getAttribute("data-profile-toggle");
+                    const profile = document.getElementById(profileId);
+                    if (!profile) return;
+
+                    const card = button.closest(".team-card");
+                    const name = card.querySelector(".team-info h5");
+                    const role = card.querySelector(".team-info .role");
+
+                    modalName.textContent = name ? name.textContent.trim() : "Team Member";
+                    modalRole.textContent = role ? role.textContent.trim() : "Anvaya Legal";
+                    modalBody.innerHTML = profile.innerHTML;
+                    lastFocusedButton = button;
+
+                    modal.classList.add("is-open");
+                    modal.setAttribute("aria-hidden", "false");
+                    document.body.classList.add("profile-modal-open");
+                    closeButton.focus();
+                });
+            });
+
+            closeButton.addEventListener("click", closeProfileModal);
+
+            modal.addEventListener("click", function (event) {
+                if (event.target === modal) closeProfileModal();
+            });
+
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape" && modal.classList.contains("is-open")) {
+                    closeProfileModal();
+                }
+            });
+        })();
+
+        // CONTACT FORM - OPENS EMAIL APPLICATION
+        document.getElementById("contactForm").addEventListener("submit",
+            function (event) {
+                event.preventDefault();
+
+                const name = document.getElementById("name").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const phone = document.getElementById("phone").value.trim();
+                const subject = document.getElementById("subject").value.trim();
+                const message = document.getElementById("message").value.trim();
+
+                const emailSubject = encodeURIComponent(
+                    "Website Enquiry: " + subject
+                );
+
+                const emailBody = encodeURIComponent(
+                    "Name: " + name + "\n" +
+                    "Email: " + email + "\n" +
+                    "Phone: " + phone + "\n\n" +
+                    "Message:\n" + message
+                );
+
+                window.location.href =
+                    "mailto:info@anvayalegal.co.in?subject=" +
+                    emailSubject + "&body=" + emailBody;
+            }
+        );
+    </script>
+
+</body>
+
+</html>
